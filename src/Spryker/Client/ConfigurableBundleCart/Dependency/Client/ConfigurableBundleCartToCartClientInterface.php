@@ -7,23 +7,17 @@
 
 namespace Spryker\Client\ConfigurableBundleCart\Dependency\Client;
 
-use ArrayObject;
 use Generated\Shared\Transfer\CartChangeTransfer;
 use Generated\Shared\Transfer\QuoteResponseTransfer;
 
 interface ConfigurableBundleCartToCartClientInterface
 {
     /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    public function getQuote();
-
-    /**
-     * @param \ArrayObject|\Generated\Shared\Transfer\ItemTransfer[] $items
+     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
      */
-    public function removeItems(ArrayObject $items);
+    public function removeFromCart(CartChangeTransfer $cartChangeTransfer): QuoteResponseTransfer;
 
     /**
      * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer

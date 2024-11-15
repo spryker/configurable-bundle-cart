@@ -5,14 +5,11 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Service\ConfigurableBundleCart\Expander;
+namespace Spryker\Client\ConfigurableBundleCart\Dependency\Service;
 
 use Generated\Shared\Transfer\ConfiguredBundleTransfer;
 
-/**
- * @deprecated Will be removed in the next major without replacement.
- */
-interface ConfiguredBundleGroupKeyExpanderInterface
+interface ConfigurableBundleCartToConfigurableBundleServiceInterface
 {
     /**
      * @param \Generated\Shared\Transfer\ConfiguredBundleTransfer $configuredBundleTransfer

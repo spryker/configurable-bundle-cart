@@ -47,11 +47,6 @@ class ConfiguredBundleQuantityCartTerminationPlugin extends AbstractPlugin imple
         return !$this->getFacade()->checkConfiguredBundleQuantityInQuote($calculatedQuoteTransfer);
     }
 
-    /**
-     * @param string $terminationEventName
-     *
-     * @return bool
-     */
     protected function isSubscribedToTerminationEventName(string $terminationEventName): bool
     {
         return in_array($terminationEventName, static::SUBSCRIBED_TERMINATION_EVENTS);

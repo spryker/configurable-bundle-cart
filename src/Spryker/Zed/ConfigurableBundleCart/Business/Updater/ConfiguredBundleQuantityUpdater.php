@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class ConfiguredBundleQuantityUpdater implements ConfiguredBundleQuantityUpdaterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function updateConfiguredBundleQuantity(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
@@ -39,11 +34,6 @@ class ConfiguredBundleQuantityUpdater implements ConfiguredBundleQuantityUpdater
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function updateConfiguredBundleQuantityPerSlot(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
@@ -61,11 +51,6 @@ class ConfiguredBundleQuantityUpdater implements ConfiguredBundleQuantityUpdater
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isConfiguredBundleItem(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getConfiguredBundleItem() && $itemTransfer->getConfiguredBundle();

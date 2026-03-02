@@ -46,11 +46,6 @@ class CartWriter implements CartWriterInterface
      */
     protected $quoteItemUpdater;
 
-    /**
-     * @param \Spryker\Client\ConfigurableBundleCart\Dependency\Client\ConfigurableBundleCartToCartClientInterface $cartClient
-     * @param \Spryker\Client\ConfigurableBundleCart\Reader\QuoteItemReaderInterface $quoteItemReader
-     * @param \Spryker\Client\ConfigurableBundleCart\Updater\QuoteItemUpdaterInterface $quoteItemUpdater
-     */
     public function __construct(
         ConfigurableBundleCartToCartClientInterface $cartClient,
         QuoteItemReaderInterface $quoteItemReader,
@@ -61,11 +56,6 @@ class CartWriter implements CartWriterInterface
         $this->quoteItemUpdater = $quoteItemUpdater;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function removeConfiguredBundle(UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer): QuoteResponseTransfer
     {
         $cartChangeTransfer = $this->quoteItemReader->getItemsByConfiguredBundleGroupKey($updateConfiguredBundleRequestTransfer);
@@ -83,11 +73,6 @@ class CartWriter implements CartWriterInterface
         return $quoteResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function updateConfiguredBundleQuantity(UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer): QuoteResponseTransfer
     {
         $cartChangeTransfer = $this->quoteItemUpdater->changeQuantity($updateConfiguredBundleRequestTransfer);
@@ -105,11 +90,6 @@ class CartWriter implements CartWriterInterface
         return $quoteResponseTransfer;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     protected function createErrorResponse(string $message): QuoteResponseTransfer
     {
         $quoteErrorTransfer = (new QuoteErrorTransfer())

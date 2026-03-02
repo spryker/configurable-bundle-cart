@@ -31,10 +31,6 @@ class ConfiguredBundleCartAdder implements ConfiguredBundleCartAdderInterface
      */
     protected ConfigurableBundleCartToConfigurableBundleServiceInterface $configurableBundleService;
 
-    /**
-     * @param \Spryker\Client\ConfigurableBundleCart\Dependency\Client\ConfigurableBundleCartToCartClientInterface $cartClient
-     * @param \Spryker\Client\ConfigurableBundleCart\Dependency\Service\ConfigurableBundleCartToConfigurableBundleServiceInterface $configurableBundleService
-     */
     public function __construct(
         ConfigurableBundleCartToCartClientInterface $cartClient,
         ConfigurableBundleCartToConfigurableBundleServiceInterface $configurableBundleService
@@ -43,11 +39,6 @@ class ConfiguredBundleCartAdder implements ConfiguredBundleCartAdderInterface
         $this->configurableBundleService = $configurableBundleService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CreateConfiguredBundleRequestTransfer $createConfiguredBundleRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function addConfiguredBundleToCart(CreateConfiguredBundleRequestTransfer $createConfiguredBundleRequestTransfer): QuoteResponseTransfer
     {
         $createConfiguredBundleRequestTransfer
@@ -66,12 +57,6 @@ class ConfiguredBundleCartAdder implements ConfiguredBundleCartAdderInterface
         return $this->cartClient->addToCart($cartChangeTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CreateConfiguredBundleRequestTransfer $createConfiguredBundleRequestTransfer
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function mapCreateConfiguredBundleRequestTransferToCartChangeTransfer(
         CreateConfiguredBundleRequestTransfer $createConfiguredBundleRequestTransfer,
         CartChangeTransfer $cartChangeTransfer
@@ -85,11 +70,6 @@ class ConfiguredBundleCartAdder implements ConfiguredBundleCartAdderInterface
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ConfiguredBundleTransfer $configuredBundleTransfer
-     *
-     * @return \Generated\Shared\Transfer\ConfiguredBundleTransfer
-     */
     protected function getSlimConfiguredBundleTransfer(ConfiguredBundleTransfer $configuredBundleTransfer): ConfiguredBundleTransfer
     {
         $configuredBundleTransfer
@@ -111,12 +91,6 @@ class ConfiguredBundleCartAdder implements ConfiguredBundleCartAdderInterface
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ConfiguredBundleTransfer $configuredBundleTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function getSlimItemTransfer(ConfiguredBundleTransfer $configuredBundleTransfer, ItemTransfer $itemTransfer): ItemTransfer
     {
         $itemTransfer
@@ -139,11 +113,6 @@ class ConfiguredBundleCartAdder implements ConfiguredBundleCartAdderInterface
         return $itemTransfer;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     protected function createErrorResponse(string $message): QuoteResponseTransfer
     {
         $quoteErrorTransfer = (new QuoteErrorTransfer())

@@ -13,11 +13,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class ConfiguredBundleQuantityChecker implements ConfiguredBundleQuantityCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     public function checkConfiguredBundleQuantity(QuoteTransfer $quoteTransfer): bool
     {
         $configuredBundleTransfers = $this->getConfiguredBundlesFromQuote($quoteTransfer);
@@ -81,11 +76,6 @@ class ConfiguredBundleQuantityChecker implements ConfiguredBundleQuantityChecker
         return $configuredBundleTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ConfiguredBundleTransfer $configuredBundleTransfer
-     *
-     * @return bool
-     */
     protected function checkConfiguredBundleQuantityCorrectness(ConfiguredBundleTransfer $configuredBundleTransfer): bool
     {
         $bundleQuantity = $configuredBundleTransfer->getQuantity();
@@ -109,11 +99,6 @@ class ConfiguredBundleQuantityChecker implements ConfiguredBundleQuantityChecker
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isConfiguredBundleItem(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getConfiguredBundleItem() && $itemTransfer->getConfiguredBundle();

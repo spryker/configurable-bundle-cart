@@ -19,19 +19,11 @@ class QuoteItemUpdater implements QuoteItemUpdaterInterface
      */
     protected $quoteItemReader;
 
-    /**
-     * @param \Spryker\Client\ConfigurableBundleCart\Reader\QuoteItemReaderInterface $quoteItemReader
-     */
     public function __construct(QuoteItemReaderInterface $quoteItemReader)
     {
         $this->quoteItemReader = $quoteItemReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function changeQuantity(UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer): CartChangeTransfer
     {
         $updateConfiguredBundleRequestTransfer->requireQuantity();

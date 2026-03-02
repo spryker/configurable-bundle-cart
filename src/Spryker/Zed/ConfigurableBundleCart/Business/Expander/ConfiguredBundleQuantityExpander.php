@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ItemTransfer;
 
 class ConfiguredBundleQuantityExpander implements ConfiguredBundleQuantityExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function expandConfiguredBundleItemsWithQuantityPerSlot(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
@@ -32,11 +27,6 @@ class ConfiguredBundleQuantityExpander implements ConfiguredBundleQuantityExpand
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isItemConfiguredBundleAndQuantityNotSet(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getConfiguredBundle()
@@ -44,11 +34,6 @@ class ConfiguredBundleQuantityExpander implements ConfiguredBundleQuantityExpand
             && !$itemTransfer->getConfiguredBundleItem()->getQuantityPerSlot();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return int
-     */
     protected function getCalculatedConfiguredBundleItemQuantityPerSlot(ItemTransfer $itemTransfer): int
     {
         $itemTransfer

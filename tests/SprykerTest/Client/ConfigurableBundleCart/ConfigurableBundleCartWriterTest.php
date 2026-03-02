@@ -102,9 +102,6 @@ class ConfigurableBundleCartWriterTest extends Unit
      */
     protected const GLOSSARY_KEY_CONFIGURED_BUNDLE_CANNOT_BE_UPDATED = 'configured_bundle_cart.error.configured_bundle_cannot_be_updated';
 
-    /**
-     * @return void
-     */
     public function testRemoveConfiguredBundleRemovesConfiguredBundleFromCart(): void
     {
         // Arrange
@@ -129,9 +126,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         $this->assertTrue($quoteResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveConfiguredBundleThrowsExceptionWithoutGroupKey(): void
     {
         // Arrange
@@ -149,9 +143,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         $cartWriterMock->removeConfiguredBundle($updateConfiguredBundleRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveConfiguredBundleThrowsExceptionWithoutQuote(): void
     {
         // Arrange
@@ -167,9 +158,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         $cartWriterMock->removeConfiguredBundle($updateConfiguredBundleRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveConfiguredBundleThrowsErrorMessageWithWrongConfiguredBundleGroupKey(): void
     {
         // Arrange
@@ -192,9 +180,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveConfiguredBundleThrowsErrorMessageWhenCartClientReturnError(): void
     {
         // Arrange
@@ -223,9 +208,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleQuantityChangesConfiguredBundleQuantity(): void
     {
         // Arrange
@@ -251,9 +233,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         $this->assertTrue($quoteResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleThrowsExceptionWithoutQuantity(): void
     {
         // Arrange
@@ -272,9 +251,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         $cartWriterMock->updateConfiguredBundleQuantity($updateConfiguredBundleRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleThrowsExceptionWithoutGroupKey(): void
     {
         // Arrange
@@ -293,9 +269,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         $cartWriterMock->updateConfiguredBundleQuantity($updateConfiguredBundleRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleThrowsExceptionWithoutQuote(): void
     {
         // Arrange
@@ -312,9 +285,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         $cartWriterMock->updateConfiguredBundleQuantity($updateConfiguredBundleRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleThrowsErrorMessageWithWrongConfiguredBundleGroupKey(): void
     {
         // Arrange
@@ -338,9 +308,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleThrowsErrorMessageWhenCartClientReturnError(): void
     {
         // Arrange
@@ -370,9 +337,6 @@ class ConfigurableBundleCartWriterTest extends Unit
         );
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function getFakeQuoteWithConfiguredBundleItems(): QuoteTransfer
     {
         return (new QuoteBuilder())
@@ -429,12 +393,6 @@ class ConfigurableBundleCartWriterTest extends Unit
             ->build();
     }
 
-    /**
-     * @param string|null $templateUuid
-     * @param string|null $groupKey
-     *
-     * @return \Generated\Shared\Transfer\ConfiguredBundleTransfer
-     */
     protected function createConfiguredBundle(?string $templateUuid = null, ?string $groupKey = null): ConfiguredBundleTransfer
     {
         return (new ConfiguredBundleBuilder())->build()
@@ -442,11 +400,6 @@ class ConfigurableBundleCartWriterTest extends Unit
             ->setGroupKey($groupKey);
     }
 
-    /**
-     * @param string|null $slotUuid
-     *
-     * @return \Generated\Shared\Transfer\ConfiguredBundleItemTransfer
-     */
     protected function createConfiguredBundleItem(?string $slotUuid = null): ConfiguredBundleItemTransfer
     {
         return (new ConfiguredBundleItemTransfer())

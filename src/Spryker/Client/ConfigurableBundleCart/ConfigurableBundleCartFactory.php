@@ -24,9 +24,6 @@ use Spryker\Client\Kernel\AbstractFactory;
  */
 class ConfigurableBundleCartFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\ConfigurableBundleCart\Writer\CartWriterInterface
-     */
     public function createCartWriter(): CartWriterInterface
     {
         return new CartWriter(
@@ -36,9 +33,6 @@ class ConfigurableBundleCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ConfigurableBundleCart\Updater\QuoteItemUpdaterInterface
-     */
     public function createQuoteItemUpdater(): QuoteItemUpdaterInterface
     {
         return new QuoteItemUpdater(
@@ -46,17 +40,11 @@ class ConfigurableBundleCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ConfigurableBundleCart\Reader\QuoteItemReaderInterface
-     */
     public function createQuoteItemReader(): QuoteItemReaderInterface
     {
         return new QuoteItemReader();
     }
 
-    /**
-     * @return \Spryker\Client\ConfigurableBundleCart\Adder\ConfiguredBundleCartAdderInterface
-     */
     public function createConfiguredBundleCartAdder(): ConfiguredBundleCartAdderInterface
     {
         return new ConfiguredBundleCartAdder(
@@ -65,17 +53,11 @@ class ConfigurableBundleCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ConfigurableBundleCart\Dependency\Client\ConfigurableBundleCartToCartClientInterface
-     */
     public function getCartClient(): ConfigurableBundleCartToCartClientInterface
     {
         return $this->getProvidedDependency(ConfigurableBundleCartDependencyProvider::CLIENT_CART);
     }
 
-    /**
-     * @return \Spryker\Client\ConfigurableBundleCart\Dependency\Service\ConfigurableBundleCartToConfigurableBundleServiceInterface
-     */
     public function getConfigurableBundleService(): ConfigurableBundleCartToConfigurableBundleServiceInterface
     {
         return $this->getProvidedDependency(ConfigurableBundleCartDependencyProvider::SERVICE_CONFIGURABLE_BUNDLE);

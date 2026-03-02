@@ -56,9 +56,6 @@ class ConfigurableBundleCartAdderTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testAddConfiguredBundleToCartAddConfiguredBundleToQuote(): void
     {
         // Arrange
@@ -100,9 +97,6 @@ class ConfigurableBundleCartAdderTest extends Unit
         $this->assertTrue($quoteResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return void
-     */
     public function testAddConfiguredBundleToCartThrowsExceptionRequiredTemplateUuid(): void
     {
         // Arrange
@@ -137,9 +131,6 @@ class ConfigurableBundleCartAdderTest extends Unit
         $configuredBundleCartAdderMock->addConfiguredBundleToCart($createConfiguredBundleRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddConfiguredBundleToCartThrowsExceptionRequiredSlotUuid(): void
     {
         // Arrange

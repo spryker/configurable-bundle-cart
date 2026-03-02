@@ -25,41 +25,26 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class ConfigurableBundleCartBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ConfigurableBundleCart\Business\Updater\ConfiguredBundleQuantityUpdaterInterface
-     */
     public function createConfiguredBundleQuantityUpdater(): ConfiguredBundleQuantityUpdaterInterface
     {
         return new ConfiguredBundleQuantityUpdater();
     }
 
-    /**
-     * @return \Spryker\Zed\ConfigurableBundleCart\Business\Checker\ConfiguredBundleQuantityCheckerInterface
-     */
     public function createConfiguredBundleQuantityChecker(): ConfiguredBundleQuantityCheckerInterface
     {
         return new ConfiguredBundleQuantityChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\ConfigurableBundleCart\Business\Expander\ConfiguredBundleQuantityExpanderInterface
-     */
     public function createConfiguredBundleQuantityExpander(): ConfiguredBundleQuantityExpanderInterface
     {
         return new ConfiguredBundleQuantityExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\ConfigurableBundleCart\Business\Expander\ConfiguredBundleGroupKeyExpanderInterface
-     */
     public function createConfiguredBundleGroupKeyExpander(): ConfiguredBundleGroupKeyExpanderInterface
     {
         return new ConfiguredBundleGroupKeyExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\ConfigurableBundleCart\Business\Checker\ConfiguredBundleTemplateSlotCheckerInterface
-     */
     public function createConfiguredBundleTemplateSlotChecker(): ConfiguredBundleTemplateSlotCheckerInterface
     {
         return new ConfiguredBundleTemplateSlotChecker(

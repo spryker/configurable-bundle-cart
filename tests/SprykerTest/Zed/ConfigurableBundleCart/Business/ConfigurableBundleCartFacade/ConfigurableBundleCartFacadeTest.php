@@ -54,9 +54,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleQuantityForQuoteAdjustsBundleQuantity(): void
     {
         // Arrange
@@ -89,9 +86,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertSame(2, $quoteTransfer->getItems()->offsetGet(1)->getConfiguredBundle()->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleQuantityForQuoteDoNotAdjustsBundleQuantityWhenQuantityPerSlotIsZero(): void
     {
         // Arrange
@@ -124,9 +118,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertNull($quoteTransfer->getItems()->offsetGet(1)->getConfiguredBundle()->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleQuantityForQuoteThrowsExceptionWhenQuantityPerSlotIsNotSet(): void
     {
         // Arrange
@@ -158,9 +149,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->tester->getFacade()->updateConfiguredBundleQuantityForQuote($quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleQuantityPerSlotForQuoteAdjustsQuantityPerSlot(): void
     {
         // Arrange
@@ -193,9 +181,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertSame(4, $quoteTransfer->getItems()->offsetGet(1)->getConfiguredBundleItem()->getQuantityPerSlot());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateConfiguredBundleQuantityPerSlotForQuoteThrowsExceptionWhenQuantityIsNotSet(): void
     {
         // Arrange
@@ -227,9 +212,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->tester->getFacade()->updateConfiguredBundleQuantityPerSlotForQuote($quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleQuantityInQuoteChecksItemQuantityCorrectnessWithConfiguredBundleQuantity(): void
     {
         // Arrange
@@ -261,9 +243,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertTrue($isValid);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleQuantityInQuoteThrowsExceptionWhenQuantityIsNotSet(): void
     {
         // Arrange
@@ -295,9 +274,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->tester->getFacade()->checkConfiguredBundleQuantityInQuote($quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleQuantityInQuoteThrowsExceptionWhenQuantityPerSlotIsNotSet(): void
     {
         // Arrange
@@ -329,9 +305,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->tester->getFacade()->checkConfiguredBundleQuantityInQuote($quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleQuantityInQuoteChecksItemQuantityCorrectnessWithConfiguredBundleQuantityWithWrongBundleQuantity(): void
     {
         // Arrange
@@ -363,9 +336,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertFalse($isValid);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleQuantityInQuoteChecksItemQuantityCorrectnessWithConfiguredBundleQuantityWithWrongQuantityPerSlot(): void
     {
         // Arrange
@@ -397,9 +367,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertFalse($isValid);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandConfiguredBundleItemsWithQuantityPerSlotWillExpandItems(): void
     {
         // Arrange
@@ -428,9 +395,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testExpandConfiguredBundleItemsWithQuantityPerSlotWillIgnoreRegularItems(): void
     {
         // Arrange
@@ -453,9 +417,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertSame($cartChangeTransfer, $updatedCartChangeTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandConfiguredBundleItemsWithGroupKeyWillExpandItems(): void
     {
         // Arrange
@@ -486,9 +447,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testExpandConfiguredBundleItemsWithGroupKeyWillIgnoreRegularItems(): void
     {
         // Arrange
@@ -515,9 +473,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleTemplateSlotCombinationValidatesSlotCombination(): void
     {
         // Arrange
@@ -556,9 +511,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertEmpty($cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleTemplateSlotCombinationValidatesSlotCombinationWithInvalidTemplateUuid(): void
     {
         // Arrange
@@ -593,9 +545,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertNotEmpty($cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConfiguredBundleTemplateSlotCombinationValidatesSlotCombinationWithInvalidSlotUuids(): void
     {
         // Arrange
@@ -631,11 +580,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
         $this->assertNotEmpty($cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return \Generated\Shared\Transfer\ConfiguredBundleTransfer
-     */
     protected function createConfiguredBundle(?int $quantity = null): ConfiguredBundleTransfer
     {
         return (new ConfiguredBundleBuilder())->build()
@@ -644,12 +588,6 @@ class ConfigurableBundleCartFacadeTest extends Unit
             ->setQuantity($quantity);
     }
 
-    /**
-     * @param string|null $slotUuid
-     * @param int|null $quantityPerSlot
-     *
-     * @return \Generated\Shared\Transfer\ConfiguredBundleItemTransfer
-     */
     protected function createConfiguredBundleItem(?string $slotUuid = null, ?int $quantityPerSlot = null): ConfiguredBundleItemTransfer
     {
         return (new ConfiguredBundleItemTransfer())

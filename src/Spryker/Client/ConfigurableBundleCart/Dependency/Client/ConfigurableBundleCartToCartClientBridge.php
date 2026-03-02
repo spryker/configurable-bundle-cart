@@ -25,31 +25,16 @@ class ConfigurableBundleCartToCartClientBridge implements ConfigurableBundleCart
         $this->cartClient = $cartClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function addToCart(CartChangeTransfer $cartChangeTransfer): QuoteResponseTransfer
     {
         return $this->cartClient->addToCart($cartChangeTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function removeFromCart(CartChangeTransfer $cartChangeTransfer): QuoteResponseTransfer
     {
         return $this->cartClient->removeFromCart($cartChangeTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function updateQuantity(CartChangeTransfer $cartChangeTransfer): QuoteResponseTransfer
     {
         return $this->cartClient->updateQuantity($cartChangeTransfer);

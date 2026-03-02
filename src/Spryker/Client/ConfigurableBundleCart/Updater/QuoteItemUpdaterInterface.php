@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\UpdateConfiguredBundleRequestTransfer;
 
 interface QuoteItemUpdaterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function changeQuantity(UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer): CartChangeTransfer;
 }

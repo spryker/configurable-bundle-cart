@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\UpdateConfiguredBundleRequestTransfer;
 
 class QuoteItemReader implements QuoteItemReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function getItemsByConfiguredBundleGroupKey(UpdateConfiguredBundleRequestTransfer $updateConfiguredBundleRequestTransfer): CartChangeTransfer
     {
         $updateConfiguredBundleRequestTransfer

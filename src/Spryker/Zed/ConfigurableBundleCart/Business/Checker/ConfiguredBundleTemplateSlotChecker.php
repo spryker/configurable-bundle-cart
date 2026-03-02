@@ -36,19 +36,11 @@ class ConfiguredBundleTemplateSlotChecker implements ConfiguredBundleTemplateSlo
      */
     protected $configurableBundleCartRepository;
 
-    /**
-     * @param \Spryker\Zed\ConfigurableBundleCart\Persistence\ConfigurableBundleCartRepositoryInterface $configurableBundleCartRepository
-     */
     public function __construct(ConfigurableBundleCartRepositoryInterface $configurableBundleCartRepository)
     {
         $this->configurableBundleCartRepository = $configurableBundleCartRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function checkConfiguredBundleTemplateSlotCombination(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
         $messageTransfers = new ArrayObject();
@@ -70,11 +62,6 @@ class ConfiguredBundleTemplateSlotChecker implements ConfiguredBundleTemplateSlo
             ->setMessages($messageTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return array
-     */
     protected function getConfiguredBundlesData(CartChangeTransfer $cartChangeTransfer): array
     {
         /** @var array<string, mixed> $configuredBundlesData */
@@ -100,11 +87,6 @@ class ConfiguredBundleTemplateSlotChecker implements ConfiguredBundleTemplateSlo
         return $configuredBundlesData;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isConfiguredBundleItem(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getConfiguredBundleItem() && $itemTransfer->getConfiguredBundle();
